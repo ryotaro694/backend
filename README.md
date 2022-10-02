@@ -42,12 +42,15 @@ php artisan migrate
 ```
 
 ##A問題
+
 下記をローカルパソコンから実行する
+
 ```
 curl -X POST -H "Content-Type: application/json" -d '{"name":"apple", "price":"200"}' localhost:8000/api/item/create
 ```
 
 ##B問題
+
 アプリケーションを操作してください。
 
 
