@@ -3,7 +3,9 @@
 ##セットアップ
 
 ①ローカルにファイルをダウンロードする
+```
 git clone https://github.com/ryotaro694/backend.git
+```
 
 ②dockerを立ち上げる
 ```
