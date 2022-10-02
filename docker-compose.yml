@@ -1,0 +1,40 @@
+version: '3'
+services:
+  app:
+    container_name: app  
+    build: ./docker/php
+    volumes:
+      - .:/var/www
+  nginx:
+    image: nginx 
+    container_name: nginx
+    ports:
+      - 8000:80 
+    volumes:
+      - .:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    working_dir: /var/www
+    depends_on:
+      - app
+  db:
+    image: mysql:8.0
+    container_name: db
+    platform: linux/x86_64
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: backend_app
+      MYSQL_USER: backend_app
+      MYSQL_PASSWORD: backend_app
+      TZ: 'Asia/Tokyo' 
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:  
+      - db-data:/var/lib/mysql
+      - ./docker/db/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf'
+      - ./docker/db/init.d:/docker-entrypoint-initdb.d'
+      - ./docker/db/log:/var/log/mysql
+    ports:
+      - 3306:3306
+
+volumes:
+  db-data:
+    driver: local
