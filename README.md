@@ -36,6 +36,7 @@ APP_URL=http://localhost:8000
 ```
 
 ⑤アプリケーションキーの作成
+
 ```php artisan key:generate```
 
 ⑥マイグレーション
