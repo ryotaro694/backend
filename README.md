@@ -1,7 +1,6 @@
 # backend
 
-##　セットアップ
-
+# セットアップ
 
 ①ローカルにファイルをダウンロードする
 ```
@@ -45,7 +44,7 @@ APP_URL=http://localhost:8000
 php artisan migrate
 ```
 
-##　A問題
+# A問題
 
 下記をローカルパソコンから実行する
 
@@ -53,7 +52,7 @@ php artisan migrate
 curl -X POST -H "Content-Type: application/json" -d '{"name":"apple", "price":"200"}' localhost:8000/api/item/create
 ```
 
-##　B問題
+# B問題
 
 アプリケーションを操作してください。
 
